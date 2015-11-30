@@ -1,0 +1,69 @@
+<div id="main-content">
+                <ul class="breadcrumbs">
+                    <li><a href="#">Home</a></li>
+                    <li>Agradecimiento</li>
+                </ul>
+                
+                <div id="gratitude-box">
+                    <div class="gratitude-words">
+                        <h2>Gracias por tu compra</h2>
+                        <p><span>Denis</span>,</p>
+                        <p>¡Hemos recibido tu solicitud de compra. Falta poco!</p>
+                        <p>Te vamos a llamar para validar tus datos.</p>
+                        <p>Recuerde que si no te ubicamos en 24 hrs cancelaremos tu compra.</p>
+                        <p>Tu número de pedido es el <span>434532</span> y fue hecho el <span>10/07/2014 a las 12:54 pm</span>.</p>
+                        <p>Fecha estimada de entrega: <span>6 días</span>.</p>
+                    </div>
+                    <div class="gratitude-info">
+                        <table>
+                            <tr class="gratitude-info-header">
+                                <th class="gratitude-info-items-item-header">Item</th>
+                                <th class="gratitude-info-items-description-header"><div>Descripción</div></th>
+                                <th class="gratitude-info-items-quantity-header"><div>Cantidad</div></th>
+                                <th class="gratitude-info-items-price-header"><div>Precio</div></th>
+                                <th class="gratitude-info-items-subtotal-header"><div>Subtotal</div></th>
+                            </tr>
+                            
+                            <?php foreach ($this->productos as $productCode =>$producto): ?>
+                               
+                                <tr class="gratitude-info-items">
+                                    <td class="gratitude-info-items-item">
+                                        <img src="<?php echo BASE_URL; ?>temp/productos/<?php echo $producto->source; ?>" width='50px' height='50px'>
+                                    </td>
+                                    <td class="gratitude-info-items-description">
+                                        <strong><?php echo $producto->nombre; ?></strong>
+                                        <p>SKU: <?php echo $producto->sku; ?></p>
+                                    </td>
+                                    <td class="gratitude-info-items-quantity">
+                                        <p><?php echo $productCode; ?></p>
+                                    </td>
+                                    <td class="gratitude-info-items-price">
+                                        <p>S/. <?php echo $producto->precio_venta; ?></p>
+                                    </td>
+                                    <td class="gratitude-info-items-subtotal">
+                                        <p>S/. <?php echo $producto->precio_venta; ?></p>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                        <table>
+                            <tr class="gratitude-info-subtotal">
+                                <td class="gratitude-info-subtotal-title">Subtotal</td>
+                                <td class="gratitude-info-subtotal-currency">S/.</td>
+                                <td class="gratitude-info-subtotal-price"><?php echo $_SESSION['totalImporte']; ?>.00</td>
+                            </tr>
+                            <tr class="gratitude-info-delivery">
+                                <td class="gratitude-info-delivery-title">Envío</td>
+                                <td class="gratitude-info-delivery-currency">S/.</td>
+                                <td class="gratitude-info-delivery-price"><?php echo $this->logo->costo_envio?>.00</td>
+                            </tr>
+                            <?php $total = $_SESSION['totalImporte'] + $this->logo->costo_envio?>
+                            <tr class="gratitude-info-total">
+                                <td class="gratitude-info-total-title">Total</td>
+                                <td class="gratitude-info-total-currency">S/.</td>
+                                <td class="gratitude-info-total-price"><?php echo $total; ?>.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>

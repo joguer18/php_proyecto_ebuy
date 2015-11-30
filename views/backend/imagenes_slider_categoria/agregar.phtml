@@ -1,0 +1,66 @@
+<div id="page-wrapper" style="min-height: 271px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Agregar Imagen para Slider</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                <div class="carousel-inner">
+                                     <?php $contador = 0;?>
+                                        <?php while($reg = $this->slider->fetch_object()):?>
+                                        <div class="imagen-slider">
+                                            <img src='<?php echo BASE_URL; ?>temp/sliders/<?php echo $reg->source ?>' width='150px' height='100px' />
+                                        </div>
+                                        <?php $contador++; ?>
+                                    <?php endwhile; ?>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    
+                                    <form role="form" method="post" action="<?php echo BASE_URL ?>/backend/imagenes_slider_categoria/agregarSliders"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="categoria_id" value="<?php echo $this->categoriaId?>">
+                                        <div class="alert alert-info">
+                                            Puedes agregar 1, 2 o 3 imágenes por vez, las imágenes que agregues se añadirán a las imágenes ya existentes del Slider si es que existen (imágenes de arriba).
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="imagen1">Imagen 1</label> 
+                                            <input type='file' id="inputIMAGEN" name='imagen1' placeholder="">
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="control-label" for="imagen2">Imagen 2</label> 
+                                            <input type='file' id="inputIMAGEN" name='imagen2' placeholder="">
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="control-label" for="imagen3">Imagen 3</label> 
+                                            <input type='file' id="inputIMAGEN" name='imagen3' placeholder="">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>

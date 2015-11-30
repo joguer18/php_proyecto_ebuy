@@ -1,0 +1,78 @@
+<div id="page-wrapper" style="min-height: 271px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Edición de Configuraciones</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" method="post" action="<?php echo BASE_URL ?>/backend/configuracion/guardarConfiguracion"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="<?php echo $this->configuracion->id?>">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type='text' name='nombre' class="form-control"
+                                                    value="<?php echo $this->configuracion->nombre?>">
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            <textarea name='descripcion' class="form-control" rows="3"><?php echo $this->configuracion->descripcion?></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Título</label>
+                                            <input type='text' name='titulo' class="form-control"
+                                                    value="<?php echo $this->configuracion->titulo?>">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label" for="logo">Imagen</label> 
+                                            <input type='file' id="inputIMAGEN" name='logo' placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <img src='<?php echo BASE_URL; ?>temp/<?php echo $this->configuracion->source?>'width='200px' height='200px' />
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Facebook</label>
+                                            <input type='text' name='facebook' class="form-control"
+                                                    value="<?php echo $this->configuracion->facebook?>">
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Twitter</label>
+                                            <input type='text' name='twitter' class="form-control"
+                                                    value="<?php echo $this->configuracion->twitter?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Costo de Envío</label>
+                                            <input type='text' name='costo_envio' class="form-control"
+                                                    value="<?php echo $this->configuracion->costo_envio?>">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>

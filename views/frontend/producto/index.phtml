@@ -1,0 +1,354 @@
+<style>
+            #header div.header-top ul.nav-user li{
+                background: #c10e0e;
+            }
+            #header div.header-top ul.nav-user li ul.logged-user-options li a:hover{
+                background: #c10e0e;
+            }
+            #header div.header-bot ul.main-menu>li:hover{
+                border-bottom: 2px solid #c10e0e;
+            }
+            #home #carousel .carousel-indicators li.active{
+                border: 1px solid #c10e0e;
+                background: #c10e0e;
+            }
+            #home #featured-products li p.product-new-price{
+                color: #c10e0e;
+            }
+            #header div.header-top{
+                border-top: 3px solid #c10e0e;
+            }
+            @media only screen and (max-width: 1023px){
+                
+            }
+            @media only screen and (max-width: 767px){
+                
+                #header div.header-top ul.nav-user li.unknown-user{
+                    background: #c10e0e;
+                }
+                #header div.header-bot ul.main-menu{
+                    background: #c10e0e;
+                }
+            }
+            @media only screen and (max-width: 479px){
+
+            }
+        </style>            
+        <div id="main-content">
+            <ul class="breadcrumbs">
+                <!--                    <li><a href="#">Home</a></li>
+                                    <li>Colchones</li>-->
+            </ul>
+            <div id="product-detail">
+                <div class="product-images">
+                    <div id="carousel-product-images" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="<?php echo BASE_URL; ?>temp/productos/<?php echo $this->producto->source?>" alt="..." data-zoom-image="img/product_img_original.jpg" width="408px" height="557px">
+                            </div>
+                        </div>
+                        <ol class="carousel-indicators thumbs-slider">
+                            <!-- aquí iban las imágenes pequeñas de los productos del slider de detalle -->
+                        </ol>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-header">
+                        <h2><?php echo $this->producto->nombre; ?></h2>
+                        <div class="product-prices">
+                            <p class="product-discounted-price">S/. <?php echo $this->producto->precio_venta; ?>.00</p>
+                        </div>
+                        <!-- <div class="product-time-left">
+                            <p>Queda: <span>02</span>días <span>12</span>hr <span>34</span>min</p>
+                        </div> -->
+                    </div>
+                    <div class="product-description-box">
+                        <h2>Ficha Técnica</h2>
+                        
+                    </div>
+                    <div class="product-info-body">
+                        <div class="product-attr">Cantidad
+                            <select>
+                                <option><?php echo 1; ?></option>
+                            </select>
+                        </div>
+                        <a class="product-buy-btn" href="<?php echo BASE_URL;?>carro/carro/<?php echo $this->producto->id;?>/add" data-toggle="modal" data-target="##my_cart_modal"><p>Comprar Ahora</p><span></span></a>
+                    </div>
+                    <div class="product-info-footer">
+                        <div class="product-socials">
+                            <!-- <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                            <a href="http://pinterest.com/pin/create/button/?url=" class="pin-it-button" count-layout="horizontal"><img style="margin: -2px 0 0 0;" border="0" src="http://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a> -->
+                            <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a> -->
+                            <script>/*!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");*/</script>
+                        </div>
+                        <div class="product-tabs">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="active"><a href="#product-developed-tab" role="tab" data-toggle="tab">Descripción</a></li>
+                                <li><a href="#product-post-buy" role="tab" data-toggle="tab">Resumen</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="product-developed-tab">
+                                    <?php echo $this->producto->descripcion; ?>
+                                </div>
+                                <div class="tab-pane" id="product-post-buy">
+                                    <ul>
+                                        <?php echo $this->producto->descripcion; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!--MY CART MODAL-->
+            
+        </div>
+
+        <!--LOGIN MODAL-->
+        <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <span class="modal-logo"></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="register-box">
+                                <h3>Regístrate</h3>
+                                <div class="login-register-error"></div>
+                                <label for="register-name">Nombre</label>
+                                <input id="register-name" type="text">
+                                <label for="register-email">Correo Electrónico</label>
+                                <input id="register-email" type="text">
+                                <div class="register-btns">
+                                    <p>Regístrate con</p>
+                                    <a href="#"></a>
+                                    <input type="submit" value="Regístrate">
+                                </div>
+                            </div>
+<!--                            <div class="login-box">
+                                <h3>¿Ya tienes una cuenta?</h3>
+                                <div class="login-register-error">Email o Contraseña inválidos</div>
+                                <label for="login-email">Correo Electrónico</label>
+                                <input id="login-email" type="text">
+                                <label for="login-password">Contraseña</label>
+                                <input id="login-password" type="password">
+                                <div class="login-btns">
+                                    <p>Ingresa con</p>
+                                    <a href=""></a>
+                                    <input type="submit" value="Ingresar">
+                                </div>
+                                <a href="#">¿Olvidaste tu contraseña?</a>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--REGISTER STEP 2 MODAL-->
+        <div class="modal fade" id="register_modal" tabindex="-1" role="dialog" aria-labelledby="register_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <span class="modal-logo"></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="register-box">
+                                <h3>Regístrate</h3>
+                                <div class="login-register-error"></div>
+                                <label for="register-password">Contraseña</label>
+                                <input id="register-password" type="password">
+                                <label for="register-confirm-password">Confirmar Contraseña</label>
+                                <input id="register-confirm-password" type="password">
+                                <label for="register-gender">Género</label>
+                                <select id="register-gender">
+                                    <option>Mujer</option>
+                                    <option>Hombre</option>
+                                </select>
+                                <input id="register-mailing" type="checkbox">
+                                <label class="register-mailing" for="register-mailing">Acepto recibir correos del Jockey Plaza</label>
+                                <div class="register-btns">
+                                    <input type="submit" value="Regístrate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--RECOVER MODAL-->
+<!--        <div class="modal fade" id="recover_modal" tabindex="-1" role="dialog" aria-labelledby="recover_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <span class="modal-logo"></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="recover-box">
+                                <h3>Recuperar Contraseña</h3>
+                                <div class="login-register-error"></div>
+                                <label for="recover-password">Contraseña</label>
+                                <input id="recover-password" type="text">
+                                <div class="recover-btns">
+                                    <p>Ingresa con</p>
+                                    <a href=""></a>
+                                    <input type="submit" value="Enviar">
+                                </div>
+                                <a href="#">Volver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+        <!--EMPTY CART MODAL-->
+        <div class="modal fade" id="empty_cart_modal" tabindex="-1" role="dialog" aria-labelledby="empty_cart_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <span class="modal-logo"></span>
+                        </div>
+                        <div class="modal-body">
+                            <h3>¿Te fijaste que te falto seleccionar la cantidad?</h3>
+                            <p>¡Elige una cantidad e intenta de nuevo!</p>
+                            <button type="button" data-dismiss="modal">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/functions.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.elevateZoom.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.bxslider.js"></script>
+        <script>
+            (function($){
+                $(window).load(function(){
+                    $("#recover_modal").modal("show");
+                    //BXSLIDER
+                    $('.thumbs-slider').bxSlider({
+                        slideWidth: 133,
+                        minSlides: 3,
+                        maxSlides: 4,
+                        moveSlides: 1,
+                        slideMargin: 5,
+                        responsive: true,
+                        pager: false,
+                        infiniteLoop: false,
+                        hideControlOnEnd: true
+                    });
+
+                    //ZOOM
+                    function initiateZoon(){
+                        var width,height,offset_x,offset_y;
+                        var windowWidth = $(window).width();
+                        if(windowWidth > 750){
+                            if(windowWidth >= 1003){
+                                width = 575;
+                                height = 407;
+                                offset_x = 20;
+                                offset_y = 22;
+                            }else if(windowWidth >=750 && windowWidth < 1003){
+                                width = 504;
+                                height = 373;
+                                offset_x = 20;
+                                offset_y = 20;
+                            }
+                            $.removeData($("#carousel-product-images .carousel-inner .item img"), 'elevateZoom');
+                            $('.zoomContainer').remove();
+
+                            $('#carousel-product-images .carousel-inner .active img').elevateZoom({
+                                zoomWindowFadeIn: 500, 
+                                zoomWindowFadeOut: 100, 
+                                lensFadeIn: 500, 
+                                lensFadeOut: 100,
+                                borderSize: 1,
+                                borderColour: "#ddd",
+                                cursor: "crosshair",
+                                zoomWindowWidth: width,
+                                zoomWindowHeight: height,
+                                zoomWindowOffetx: offset_x,
+                                zoomWindowOffety: offset_y
+                           }); 
+                        }else{
+                            $.removeData($("#carousel-product-images .carousel-inner .item img"), 'elevateZoom');
+                            $('.zoomContainer').remove();
+                        }
+                    }
+                    $('#carousel-product-images').on('slid.bs.carousel', function () {
+                        console.log("hola");
+                        initiateZoon();
+                    })
+                    $(window).resize(function(){
+                        initiateZoon();
+                    });
+                    initiateZoon();
+                    
+                    //CUSTOM SCROLLBAR
+                    $("#product-detail .product-info .product-description-box .product-description").mCustomScrollbar({
+                        setWidth:false,
+                        setHeight:false,
+                        setTop:0,
+                        setLeft:0,
+                        axis:"y",
+                        scrollbarPosition:"inside",
+                        scrollInertia:950,
+                        autoDraggerLength:true,
+                        autoHideScrollbar:false,
+                        autoExpandScrollbar:false,
+                        alwaysShowScrollbar:0,
+                        snapAmount:null,
+                        snapOffset:0,
+                        mouseWheel:{
+                            enable:true,
+                            scrollAmount:"auto",
+                            axis:"y",
+                            preventDefault:false,
+                            deltaFactor:"auto",
+                            normalizeDelta:false,
+                            invert:false
+                        },
+                        scrollButtons:{
+                            enable:false,
+                            scrollType:"stepless",
+                            scrollAmount:"auto"
+                        },
+                        keyboard:{
+                            enable:true,
+                            scrollType:"stepless",
+                            scrollAmount:"auto"
+                        },
+                        contentTouchScroll:25,
+                        advanced:{
+                            autoExpandHorizontalScroll:false,
+                            autoScrollOnFocus:"input,textarea,select,button,datalist,keygen,a[tabindex],area,object,[contenteditable='true']",
+                            updateOnContentResize:true,
+                            updateOnSelectorLength:false
+                        },
+                        theme:"dark",
+                        callbacks:{
+                            onScrollStart:false,
+                            onScroll:false,
+                            onTotalScroll:false,
+                            onTotalScrollBack:false,
+                            whileScrolling:false,
+                            onTotalScrollOffset:0,
+                            onTotalScrollBackOffset:0,
+                            alwaysTriggerOffsets:true
+                        },
+                        live:false
+                    });
+                });
+            })(jQuery);
+        </script>
+    </body>

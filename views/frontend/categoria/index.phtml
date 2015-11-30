@@ -1,0 +1,60 @@
+<div id="main-content">
+    <div id="home">
+         <!-- <li data-target="#carousel" data-slide-to="0" class="active"></li> -->
+         <!-- <div class="item active">
+                        <img src="<?php echo BASE_URL; ?>public/assets/frontend/img/slide1.png" alt="">
+              </div> -->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <?php $contador = 0;?>
+             <?php $active = "";?>
+            
+                <ol class="carousel-indicators">
+                  <?php foreach ($this->slider as $imagen_slider): ?>
+                        <?php
+                        if ($contador == 0) {
+                            $active = "active";
+                        } else {
+                            $active = "";
+                        }
+                        ?>
+                    <li data-target="#carousel" data-slide-to="<?php echo $contador; ?>" class="<?php echo $active;?>"></li>
+                    <?php $contador++;?>
+                    
+                     <?php endforeach; ?>
+                </ol>
+                <div class="carousel-inner">
+                    <?php $contador = 0; ?>
+                    <?php $active = ""; ?>
+                    <?php foreach ($this->slider as $imagen_slider): ?>
+                        <?php
+                        if ($contador == 0) {
+                            $active = "active";
+                        } else {
+                            $active = "";
+                        }
+                        ?>
+                        <div class="item <?php echo $active; ?>" width="1003" height="431">
+                            <img src="<?php echo BASE_URL; ?>temp/sliders/<?php echo $imagen_slider['source']; ?>" height="431px">
+                        </div>
+                    <?php $contador++;?>
+                    <?php endforeach; ?>
+                </div>
+            
+        </div>
+        
+        <ul id="featured-products">
+            <?php foreach ($this->productos as $producto): ?>
+            <li><a href="<?php echo BASE_URL?>producto/detalle/<?php echo $producto['id'];?>">
+                <table>
+                    <tr>
+                        <td><img src="<?php echo BASE_URL; ?>temp/productos/<?php echo $producto['source']; ?>" width="300" height="400"></td>
+                    </tr>
+                </table>
+                <p class="product-title"><?php echo $producto['nombre']; ?></p>
+                <p class="product-new-price">S/. <?php echo $producto['precio_venta']; ?>.<span>00</span></p>
+                </a>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+            

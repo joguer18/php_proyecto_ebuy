@@ -1,0 +1,311 @@
+<head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <link media="all" rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link media="all" rel="stylesheet" type="text/css" href="css/style.css" />
+        <link media="all" rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css" />
+        <link media="all" rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+        <style>
+            #header div.header-top ul.nav-user li{
+                background: #c10e0e;
+            }
+            #header div.header-top ul.nav-user li ul.logged-user-options li a:hover{
+                background: #c10e0e;
+            }
+            #header div.header-bot ul.main-menu>li:hover{
+                border-bottom: 2px solid #c10e0e;
+            }
+            #home #carousel .carousel-indicators li.active{
+                border: 1px solid #c10e0e;
+                background: #c10e0e;
+            }
+            #home #featured-products li p.product-new-price{
+                color: #c10e0e;
+            }
+            #header div.header-top{
+                border-top: 3px solid #c10e0e;
+            }
+            @media only screen and (max-width: 1023px){
+                
+            }
+            @media only screen and (max-width: 767px){
+                
+                #header div.header-top ul.nav-user li.unknown-user{
+                    background: #c10e0e;
+                }
+                #header div.header-bot ul.main-menu{
+                    background: #c10e0e;
+                }
+            }
+            @media only screen and (max-width: 479px){
+
+            }
+        </style>
+        <script type="text/javascript">
+            var globalColor = "c10e0e";
+        </script>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>/*
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));*/
+        </script>
+        <div id="wrapper">
+            <div id="main-content">
+                <div id="checkout">
+                    <form action="<?php echo BASE_URL ?>pedido/guardarPedido" method="post">
+                        <input type="hidden" name="configuracion_id" value="<?php echo $this->logo->costo_envio?>">
+                        <div class="user-data-box">
+                            <h2>Ingresa tus datos de envío</h2>
+                            <div class="user-data">
+                                <div class="address-box">
+                                    <label for="address">Dirección:</label>
+                                    <input id="address" type="text" name="address">
+                                </div>
+<!--                                <div class="department-box">
+                                    <label for="deparment">Departamento:</label>
+                                    <select id="deparment" name="department">
+                                        <option>Seleccione</option>
+                                    </select>
+                                </div>
+                                <div class="province-box">
+                                    <label for="province">Provincia:</label>
+                                    <select id="province" name="province">
+                                        <option>Seleccione</option>
+                                    </select>
+                                </div>
+                                <div class="district-box">
+                                    <label for="district">Distrito:</label>
+                                    <select id="district" name="district">
+                                        <option>Seleccione</option>
+                                    </select>
+                                </div>-->
+                                
+                                <div class="reference-box">
+                                    <label for="reference">Referencia (opcional):</label>
+                                    <input id="reference" type="text" name="reference">
+                                </div>
+                                <div class="dni-box">
+                                    <label for="dni">DNI:</label>
+                                    <input id="dni" type="text" name="dni">
+                                </div>
+                                <div class="dni-box">
+                                    <label for="phone">Celular:</label>
+                                    <input id="phone" type="text" name="phone">
+                                </div>
+
+                                <div class="delivery-price">
+                                    <h3>Costo de envío (*):</h3>
+                                    <table>
+                                        <tr class="delivery-price-option">
+                                            <td>
+                                                <input id="delivery_price1" type="radio" name="delivery_price" value="<?php echo $this->logo->costo_envio?>" checked="true">
+                                                <label for="delivery_price1">Costo de envío:</label>
+                                            </td>
+                                            <td><p>S/. <?php echo $this->logo->costo_envio?></p></td>
+                                        </tr>
+                                        <tr class="delivery-price-separator">
+                                            <td></td>
+                                        </tr>
+                                        <tr class="delivery-price-option">
+                                            <td>
+                                                <input id="delivery_price2" type="radio" name="delivery_price">
+                                                <label for="delivery_price2">Tiempo de entrega:</label>
+                                            </td>
+                                            <td><p> 10 dias aprox.</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <p class="delivery-info">(*)Los compromisos en los tiempos de entrega no incluyen sábados, domingos ni feriados</p>
+                        </div>
+                        <div class="price-box">
+                            <h2>Cantidades de la compra</h2>
+                            <?php $suma_total = 0;?>
+                            <table>
+                                <tr>
+                                    <td class="price-block1">Subtotal</td>
+                                    <td class="price-block2">S/.</td>
+                                    <td class="price-block3"><?php echo $_SESSION['totalImporte']; ?>.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="price-block1">Envio</td>
+                                    <td class="price-block2">S/.</td>
+                                    <td class="price-block3"><?php echo $this->logo->costo_envio?>.00</td>
+                                </tr>
+                                <?php $suma_total = $_SESSION['totalImporte']+$this->logo->costo_envio?>
+                                <tr class="price-total">
+                                    <td class="price-block1">Total</td>
+                                    <td class="price-block2">S/.</td>
+                                    <td class="price-block3"><?php echo $suma_total; ?>.00</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="payment-box">
+                            <h2>Selecciona tu forma de pago</h2>
+                            <div class="payment">
+                                <div class="payment-type">
+                                    <input type="radio" name="payment_type" value="1" id="payment_type2">
+                                    <label for="payment_type2">Pago contra entrega </label>
+                                    <ul>
+                                        <li class="payment-type-contraentrega"></li>
+                                    </ul>
+                                </div>
+                                <div class="payment-type">
+                                    <input type="radio" name="payment_type" value="2" id="payment_type3">
+                                    <label for="payment_type3">PayPal </label>
+                                    <ul>
+                                        <li class="payment-type-pago-efectivo"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input type="submit" value="Pagar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--LOADING MODAL-->
+            <div class="modal fade" id="loading_modal" tabindex="-1" role="dialog" aria-labelledby="loading_label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script type="text/javascript" src="js/jquery.elevateZoom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+        <script>
+            (function($){
+                $(window).load(function(){
+                    //TOOLTIP
+                    $('[data-toggle="tooltip"]').tooltip({
+                        'placement': 'top',
+                        'html': true
+                    });
+
+                    //BXSLIDER
+                    $('.thumbs-slider').bxSlider({
+                        slideWidth: 133,
+                        minSlides: 3,
+                        maxSlides: 4,
+                        moveSlides: 1,
+                        slideMargin: 5,
+                        responsive: true,
+                        pager: false,
+                        infiniteLoop: false,
+                        hideControlOnEnd: true
+                    });
+
+                    //ZOOM
+                    function initiateZoon(){
+                        var width,height,offset_x,offset_y;
+                        var windowWidth = $(window).width();
+                        if(windowWidth > 750){
+                            if(windowWidth >= 1003){
+                                width = 575;
+                                height = 407;
+                                offset_x = 20;
+                                offset_y = 22;
+                            }else if(windowWidth >=750 && windowWidth < 1003){
+                                width = 504;
+                                height = 373;
+                                offset_x = 20;
+                                offset_y = 20;
+                            }
+                            $.removeData($("#carousel-product-images .carousel-inner .item img"), 'elevateZoom');
+                            $('.zoomContainer').remove();
+
+                            $('#carousel-product-images .carousel-inner .active img').elevateZoom({
+                                zoomWindowFadeIn: 500, 
+                                zoomWindowFadeOut: 100, 
+                                lensFadeIn: 500, 
+                                lensFadeOut: 100,
+                                borderSize: 1,
+                                borderColour: "#ddd",
+                                cursor: "crosshair",
+                                zoomWindowWidth: width,
+                                zoomWindowHeight: height,
+                                zoomWindowOffetx: offset_x,
+                                zoomWindowOffety: offset_y
+                           }); 
+                        }else{
+                            $.removeData($("#carousel-product-images .carousel-inner .item img"), 'elevateZoom');
+                            $('.zoomContainer').remove();
+                        }
+                    }
+                    $('#carousel-product-images').on('slid.bs.carousel', function () {
+                        console.log("hola");
+                        initiateZoon();
+                    })
+                    $(window).resize(function(){
+                        initiateZoon();
+                    });
+                    initiateZoon();
+
+                    //CUSTOM SCROLLBAR
+                    $("#product-detail .product-info .product-description-box .product-description").mCustomScrollbar({
+                        setWidth:false,
+                        setHeight:false,
+                        setTop:0,
+                        setLeft:0,
+                        axis:"y",
+                        scrollbarPosition:"inside",
+                        scrollInertia:950,
+                        autoDraggerLength:true,
+                        autoHideScrollbar:false,
+                        autoExpandScrollbar:false,
+                        alwaysShowScrollbar:0,
+                        snapAmount:null,
+                        snapOffset:0,
+                        mouseWheel:{
+                            enable:true,
+                            scrollAmount:"auto",
+                            axis:"y",
+                            preventDefault:false,
+                            deltaFactor:"auto",
+                            normalizeDelta:false,
+                            invert:false
+                        },
+                        scrollButtons:{
+                            enable:false,
+                            scrollType:"stepless",
+                            scrollAmount:"auto"
+                        },
+                        keyboard:{
+                            enable:true,
+                            scrollType:"stepless",
+                            scrollAmount:"auto"
+                        },
+                        contentTouchScroll:25,
+                        advanced:{
+                            autoExpandHorizontalScroll:false,
+                            autoScrollOnFocus:"input,textarea,select,button,datalist,keygen,a[tabindex],area,object,[contenteditable='true']",
+                            updateOnContentResize:true,
+                            updateOnSelectorLength:false
+                        },
+                        theme:"dark",
+                        callbacks:{
+                            onScrollStart:false,
+                            onScroll:false,
+                            onTotalScroll:false,
+                            onTotalScrollBack:false,
+                            whileScrolling:false,
+                            onTotalScrollOffset:0,
+                            onTotalScrollBackOffset:0,
+                            alwaysTriggerOffsets:true
+                        },
+                        live:false
+                    });
+                });
+            })(jQuery);
+        </script>
+    </body>

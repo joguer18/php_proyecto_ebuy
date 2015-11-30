@@ -1,0 +1,80 @@
+<div id="page-wrapper" style="min-height: 271px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Agregar Categoría</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" method="post" action="<?php echo BASE_URL ?>/backend/categoria/agregarCategoria"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="<?php echo $this->categoria->id?>">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type='text' name='nombre' class="form-control"
+                                                    value="">
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            <textarea name='descripcion' class="form-control" rows="3"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Slug</label>
+                                            <input type='text' name='slug' class="form-control"
+                                                    value="">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label" for="imagen">Imagen</label> 
+                                            <input type='file' id="inputIMAGEN" name='imagen' placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Clasificación</label>
+                                            <select name="clasificacion" id="classification_id" class="form-control">
+                                                <?php
+                                                foreach ($this->clasificaciones as $clasificacion) {
+                                                  ?>
+                                                   <option value="<?php echo $clasificacion['id']; ?>">
+                                                       <?php echo $clasificacion['nombre']; ?></option>
+                                                <?php     
+                                                } 
+                                                ?>
+                                            </select>
+                                            
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Estado</label>
+                                            <select class="form-control" name="estado">
+                                                <option value="1"> Activo </option>
+                                                <option value="0">Inactivo</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>

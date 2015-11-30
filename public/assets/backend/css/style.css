@@ -1,0 +1,12 @@
+.imagen-slider{
+    float: left; 
+    border: 1px solid #d0d0d0;
+}
+
+.clr{
+    clear:both;
+}
+
+.tamano-slider-thumbnail{
+    height: 200px;
+}

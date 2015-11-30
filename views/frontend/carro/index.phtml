@@ -1,0 +1,154 @@
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <link media="all" rel="stylesheet" type="text/css" href="<?php echo BASE_URL?>public/assets/frontend/css/style.css">
+        <link media="all" rel="stylesheet" type="text/css" href="<?php echo BASE_URL?>public/assets/frontend/css/jquery.mCustomScrollbar.css">
+        <link media="all" rel="stylesheet" type="text/css" href="<?php echo BASE_URL?>public/assets/frontend/css/jquery.bxslider.css">
+        
+        <style>
+            #header div.header-top ul.nav-user li{
+                background: #c10e0e;
+            }
+            #header div.header-top ul.nav-user li ul.logged-user-options li a:hover{
+                background: #c10e0e;
+            }
+            #header div.header-bot ul.main-menu>li:hover{
+                border-bottom: 2px solid #c10e0e;
+            }
+            #home #carousel .carousel-indicators li.active{
+                border: 1px solid #c10e0e;
+                background: #c10e0e;
+            }
+            #home #featured-products li p.product-new-price{
+                color: #c10e0e;
+            }
+            #header div.header-top{
+                border-top: 3px solid #c10e0e;
+            }
+            @media only screen and (max-width: 1023px){
+                
+            }
+            @media only screen and (max-width: 767px){
+                
+                #header div.header-top ul.nav-user li.unknown-user{
+                    background: #c10e0e;
+                }
+                #header div.header-bot ul.main-menu{
+                    background: #c10e0e;
+                }
+            }
+            @media only screen and (max-width: 479px){
+
+            }
+        </style>
+        <script type="text/javascript">
+            var globalColor = "c10e0e";
+        </script>
+    </head>
+<!--MY CART MODAL-->
+            <div class="modal fade" id="my_cart_modal" tabindex="-1" role="dialog" aria-labelledby="my_cart_label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="my_cart_label">Carrito de Compras</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tr class="my-cart-header">
+                                    <th class="cart-item">Item</th>
+                                    <th class="cart-detail">Detalle</th>
+                                    <th class="cart-price">Precio</th>
+                                    <th class="cart-quantity">Cantidad</th>
+                                    <th class="cart-subtotal">Subtotal</th>
+                                    <th class="cart-remove"></th>
+                                </tr>
+                                <tr class="my-cart-body">
+                                    <td class="cart-item">
+                                        <img src="#">
+                                    </td>
+                                    <td class="cart-detail">
+                                        <strong>Cocoon</strong>
+                                        <p>Faja Reductora Modeladora Forrada</p>
+                                        <p>Color: Natural</p>
+                                        <p>Talla : 32</p>
+                                    </td>
+                                    <td class="cart-price">
+                                        S/. 79.00
+                                    </td>
+                                    <td class="cart-quantity">
+                                        <select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </td>
+                                    <td class="cart-subtotal">
+                                        S/. 79.00
+                                    </td>
+                                    <td class="cart-remove">
+                                        <a href="#">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr class="my-cart-body">
+                                    <td class="cart-item">
+                                        <img src="#">
+                                    </td>
+                                    <td class="cart-detail">
+                                        <strong>Cocoon</strong>
+                                        <p>Faja Reductora Modeladora Forrada</p>
+                                        <p>Color: Natural</p>
+                                        <p>Talla : 32</p>
+                                    </td>
+                                    <td class="cart-price">
+                                        S/. 79.00
+                                    </td>
+                                    <td class="cart-quantity">
+                                        <select>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </td>
+                                    <td class="cart-subtotal">
+                                        S/. 79.00
+                                    </td>
+                                    <td class="cart-remove">
+                                        <a href="#">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr class="my-cart-footer">
+                                    <td class="cart-total" colspan="6">
+                                        S/. 79.00
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <ul>
+                                <li class="payment-visa"></li>
+                                <li class="payment-mastercard"></li>
+                                <li class="payment-ae"></li>
+                                <li class="payment-contraentrega"></li>
+                                <li class="payment-pago-efectivo"></li>
+                            </ul>
+                            <button type="button" class="buy">Comprar</button>
+                            <button type="button" class="keep-buying" data-dismiss="modal">Seguir Comprando</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/functions.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.elevateZoom.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>public/assets/frontend/js/jquery.bxslider.js"></script>
+<script>

@@ -1,0 +1,114 @@
+<div id="page-wrapper" style="min-height: 271px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Edición de Categorías</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Generales</a>
+                                </li>
+                                <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Sliders de la Categoría</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="home">
+                                    <h4>Generales</h4>
+                                    <div class="col-lg-6">
+                                    <form role="form" method="post" action="<?php echo BASE_URL ?>/backend/categoria/guardarCategoria"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="<?php echo $this->categoria->id?>">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input type='text' name='nombre' class="form-control"
+                                                    value="<?php echo $this->categoria->nombre?>">
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripción</label>
+                                            <textarea name='descripcion' class="form-control" rows="3"><?php echo $this->categoria->descripcion?></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Slug</label>
+                                            <input type='text' name='slug' class="form-control"
+                                                    value="<?php echo $this->categoria->slug?>">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label" for="imagen">Imagen</label> 
+                                            <input type='file' id="inputIMAGEN" name='imagen' placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <img src='<?php echo BASE_URL; ?>temp/categorias/<?php echo $this->categoria->source?>'width='200px' height='200px' />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Clasificación</label>
+                                            <select name="clasificacion" id="classification_id" class="form-control">
+                                                <?php
+                                                foreach ($this->clasificaciones as $clasificacion) {
+                                                  ?>
+                                                   <option value="<?php echo $clasificacion['id']; ?>"
+                                                   <?php if($this->categoria->clasificacion_id == $clasificacion['id']) echo "selected"; ?> >
+                                                       <?php echo $clasificacion['nombre']; ?></option>
+                                                <?php     
+                                                } 
+                                                ?>
+                                            </select>
+                                            
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Estado</label>
+                                            <select class="form-control" name="estado">
+                                                <option value="1" <?php if($this->categoria->estado == 1) echo "selected"; ?> > Activo </option>
+                                                <option value="0" <?php if($this->categoria->estado == 0) echo "selected"; ?>>Inactivo</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="profile">
+                                    <h4>Sliders de la Categoría</h4>
+                                    <div class="col-lg-12">
+                                    <form role="form" method="post" action="<?php echo BASE_URL ?>/backend/imagenes_slider_categoria/guardarSliders"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="categoria_id" value="<?php echo $this->categoria->id?>">
+                                        <?php $contador = 0;?>
+                                        <?php while($reg = $this->slider->fetch_object()):?>
+                                        <input type="hidden" name="id[]" value="<?php echo $reg->id?>">
+                                            <div class="form-group imagen-slider tamano-slider-thumbnail">
+                                                <label class="control-label" for="imagen">Imagen <?php $contador; ?></label> 
+                                                <input type='file' id="inputIMAGEN" name='imagen[]' placeholder="">
+                                            </div>
+                                            <?php echo $reg->id?>
+                                            <div class="form-group imagen-slider">
+                                                <img src='<?php echo BASE_URL; ?>temp/sliders/<?php echo $reg->source?>'width='200px' height='200px' />
+                                            </div>
+                                            <div class="clr"></div>
+                                            
+                                        <?php $contador++;?>
+                                        <?php endwhile ;?>
+                                        
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
